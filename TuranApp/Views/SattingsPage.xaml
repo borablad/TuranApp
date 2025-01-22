@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TuranApp.Views.SattingsPage"
+             Title=""
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView >
+        <StackLayout Margin="30,20" Spacing="10">
+            <!-- App -->
+            <Label Text="Приложение" VerticalTextAlignment="Center" FontSize="20"  />
+            <Border Padding="5,5">
+                <StackLayout Spacing="8">
+                    <Grid ColumnDefinitions="*,auto" >
+                        <Label Text="Тема" VerticalTextAlignment="Center" FontSize="18" Margin="10" />
+                        <Border Grid.Column="1" Padding="8" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" MinimumWidthRequest="180" >
+                            <Label Text="Системная" VerticalTextAlignment="Center" FontSize="18" HorizontalTextAlignment="Center" />
+                        </Border>
+                    </Grid>
+                    <Border BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" HeightRequest="3" Margin="15,0" />
+                    <Grid ColumnDefinitions="*,auto" >
+                        <Label Text="Уведомления" VerticalTextAlignment="Center" FontSize="18" Margin="10"  IsEnabled="False" />
+                        <Switch Grid.Column="1" IsEnabled="False" />
+                    </Grid>
+                </StackLayout>
+            </Border>
+
+            <!-- Акк -->
+            <Label Text="Аккаунт" VerticalTextAlignment="Center" FontSize="20"  />
+            <Border Padding="5,5">
+                <StackLayout Spacing="8">
+                    <Grid ColumnDefinitions="*,auto" >
+                        <Label Text="Ливнуть" TextColor="{StaticResource RedButton}" VerticalTextAlignment="Center" FontSize="18" Margin="10" />
+                    </Grid>
+                    <Border BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" HeightRequest="3" Margin="15,0" />
+                    <Grid ColumnDefinitions="*,auto" >
+                        <Label Text="Сбросить пин код" TextColor="{StaticResource RedButton}" VerticalTextAlignment="Center" FontSize="18" Margin="10"  IsEnabled="False" />
+                    </Grid>
+                </StackLayout>
+            </Border>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

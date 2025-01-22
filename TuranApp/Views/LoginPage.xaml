@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TuranApp.ViewModels"
+             x:Class="TuranApp.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout >
+       
+        <Border Margin="40" VerticalOptions="Center" HorizontalOptions="Center" >
+            <Image Source="bunt.png" MaximumWidthRequest="250" MaximumHeightRequest="230"  />
+        </Border>
+        <Border BackgroundColor="{StaticResource Primary}" Padding="15,10" HorizontalOptions="Center" Margin="30,100" >
+            <Label Text="Войти через Google" TextColor="{StaticResource TextColorDark}" HorizontalTextAlignment="Center"  FontSize="26"   FontAttributes="None"/>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LoginCommand}" /> <!-- ъуъ -->
+            </Border.GestureRecognizers>
+        </Border>
+        
+        <StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="60,10,60,30">
+            <Label Text="Это приложение создано по приколу и не для заработка. если имеется желание" HorizontalTextAlignment="Center" />
+            <Label Text="донатить zдесь" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer /> <!-- Вреатли я добавлю ссылку на донат но пусть будет -->
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="End"  Margin="15" >
+           
+            <Label Text="{Binding AppVersion,Mode=OneTime}"    FontAttributes="Bold" FontSize="12"  ></Label>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TuranApp.Views.PinCodePage"
+             xmlns:fa="clr-namespace:FontAwesome"
+             xmlns:vm="clr-namespace:TuranApp.ViewModels"
+             Title=""
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:PinCodeViewModel/>
+    </ContentPage.BindingContext>
+    <Grid ColumnDefinitions=".5*,*,.5*" RowSpacing="0" RowDefinitions="auto,*" >
+
+
+
+        <!--<Image Grid.ColumnSpan="3" Source="appiconbg" Opacity="0.3" Aspect="AspectFit"  />-->
+
+        <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="40,20" TranslationY="60" VerticalOptions="End" Spacing="15" >
+            <Label IsVisible="{Binding IsCurentCode}" Text="Введите пин код для входа" HorizontalTextAlignment="Center" FontSize="16">
+
+            </Label>
+            <Label IsVisible="{Binding IsCurentCode}" Text="Пин код привязан к устройсву а не к аккаунту" TextColor="{StaticResource RedButton}" HorizontalTextAlignment="Center" FontSize="16">
+
+            </Label>
+
+            <StackLayout Spacing="15">
+                <StackLayout.Triggers>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsCurentCode}" Value="true">
+                        <Setter Property="IsVisible" Value="False"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsCurentCode}" Value="false">
+                        <Setter Property="IsVisible" Value="True"/>
+                    </DataTrigger>
+                </StackLayout.Triggers>
+                <Label Text="Пин код нужен толко для быстрого и безопасного доступа в приложение он хранится на самом телефоне и ниукого нет к ни=ему доступа " HorizontalTextAlignment="Center" FontSize="16">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsRegCodeStep}" Value="true">
+                            <Setter Property="IsVisible" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsRegCodeStep}" Value="false">
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label Text="Пофторите код" HorizontalTextAlignment="Center" FontSize="16">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsRegCodeStep}" Value="true">
+                            <Setter Property="IsVisible" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger TargetType="Label" Binding="{Binding IsRegCodeStep}" Value="false">
+                            <Setter Property="IsVisible" Value="True"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label IsVisible="{Binding IsRegCodeStep}" Text="У приложения нет сохранённого пин кода " HorizontalTextAlignment="Center" FontSize="16"/>
+                <Label IsVisible="{Binding IsRegCodeStep}" Text="Создайте новый" HorizontalTextAlignment="Center" FontSize="16"/>
+            </StackLayout>
+           
+        </StackLayout>
+        <StackLayout Grid.Row="1" VerticalOptions="Center" Spacing="40"  Grid.Column="1" Margin="-10,0" >
+
+
+
+            <HorizontalStackLayout Spacing="25" HorizontalOptions="CenterAndExpand" x:Name="CodeIdikator">
+                <Label FontFamily="FAR" FontSize="Title" Text="{x:Static fa:FontAwesomeIcons.Circle}" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray300}}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Circle1}" Value="True">
+                            <Setter Property="FontFamily" Value="FAS" />
+                            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label FontFamily="FAR" FontSize="Title" Text="{x:Static fa:FontAwesomeIcons.Circle}" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray300}}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Circle2}" Value="True">
+                            <Setter Property="FontFamily" Value="FAS" />
+                            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label FontFamily="FAR" FontSize="Title" Text="{x:Static fa:FontAwesomeIcons.Circle}" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray300}}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Circle3}" Value="True">
+                            <Setter Property="FontFamily" Value="FAS" />
+                            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label FontFamily="FAR" FontSize="Title" Text="{x:Static fa:FontAwesomeIcons.Circle}" TextColor="{AppThemeBinding Light={StaticResource Gray400}, Dark={StaticResource Gray300}}">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Circle4}" Value="True">
+                            <Setter Property="FontFamily" Value="FAS" />
+                            <Setter Property="TextColor" Value="{StaticResource Primary}" />
+
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+            </HorizontalStackLayout>
+            <Grid RowDefinitions="80,80,80,80" ColumnDefinitions="80,80,80" RowSpacing="15" ColumnSpacing="15" HorizontalOptions="Center" WidthRequest="250">
+                <Border   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="1" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.One}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <Border  Grid.Column="1"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="2"   />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Two}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <Border  Grid.Column="2"    >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="3" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Three}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <!--<Border  Grid.Column="3" >
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="-" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Minus}" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>-->
+                <Border  Grid.Row="1" Grid.Column="2"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="6" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Six}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <Border  Grid.Column="1" Grid.Row="1"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="5" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Five}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <Border   Grid.Row="1"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="4" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Four}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <!--<Border  Grid.Column="3" Grid.Row="1">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="/" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Divide}" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>-->
+
+                <Border Grid.Row="2"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Seven}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS"  VerticalOptions="Center" HorizontalOptions="Center" InputTransparent="True"/>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="7" />
+                    </Border.GestureRecognizers>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Eight}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS"  VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="8" />
+                    </Border.GestureRecognizers>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="2"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="9" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Nine}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <!--<Border Grid.Row="2" Grid.Column="3">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="*" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Xmark}" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>-->
+                <Border   Grid.Row="3"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="back" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.DeleteLeft}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+                <Border  Grid.Column="1" Grid.Row="3"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="0" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Zero}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                </Border>
+
+                <Border  Grid.Column="2" Grid.Row="3"   >
+                    <Border.Shadow>
+                        <Shadow Brush="Black"
+                Offset="0,0"
+                Radius="3"
+                Opacity="0.2"/>
+                    </Border.Shadow>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.ChevronLeft}" FontSize="Title" FontAttributes="Bold" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"  InputTransparent="True"/>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="=" />
+                    </Border.GestureRecognizers>
+                </Border>
+                <!--<Border  Grid.Column="3" Grid.Row="3">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding KeyInputCommand}" CommandParameter="+" />
+                    </Border.GestureRecognizers>
+                    <Label Text="{x:Static fa:FontAwesomeIcons.Plus}" FontFamily="FAS" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Border>-->
+            </Grid>
+        </StackLayout>
+        <Button Grid.Column="0" Text="{x:Static fa:FontAwesomeIcons.RightFromBracket}" FontFamily="FAS" FontSize="30" WidthRequest="80" HeightRequest="80"
+                VerticalOptions="Start" HorizontalOptions="Start" BackgroundColor="Transparent" TextColor="{StaticResource Primary}"
+                Command="{Binding LogOutCommand}"/>
+
+
+
+        <Label Grid.Row="1" Grid.Column="2" Text="{Binding AppVersion,Mode=OneTime}"  Margin="15"  FontAttributes="Bold" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="End"></Label>
+
+    </Grid>
+</ContentPage>
