@@ -9,12 +9,17 @@
         <vm:SattindViewModel/>
     </ContentPage.BindingContext>
     <ScrollView >
-        <StackLayout Margin="30,20" Spacing="10">
-            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="End"  Margin="15" >
+        <StackLayout Margin="20,15" Spacing="10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="10"  >
 
+                <Label Text="Проверить наличие обновления" TextColor="{StaticResource Primary}" FontAttributes="Bold" FontSize="12"  >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label Text="{Binding AppVersion,Mode=OneTime}"    FontAttributes="Bold" FontSize="12"  ></Label>
 
-            </StackLayout>-->
+            </StackLayout>
             <!-- App -->
             <Label Text="Приложение" VerticalTextAlignment="Center" FontSize="20"  />
             <Border Padding="5,5">
@@ -56,17 +61,17 @@
                 </StackLayout>
             </Border>
 
-            <!--<StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="60,10,60,30">
-                <Label Text="Это приложение создано по приколу и не для заработка. если имеется желание" HorizontalTextAlignment="Center" />
-                <Label Text="донатить zдесь" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center">
+            <StackLayout  VerticalOptions="EndAndExpand" >
+                <Label Text="Нашли баг или есть предложения?" HorizontalTextAlignment="Center" />
+                <Label Text="можете написать в тг бот" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer />
-                        --><!-- Вреатли я добавлю ссылку на донат но пусть будет --><!--
+                         
                     </Label.GestureRecognizers>
                 </Label>
+                <Label Text="если я его создал..." HorizontalTextAlignment="Center" />
                 
-                
-            </StackLayout>-->
+            </StackLayout>
            
         </StackLayout>
     </ScrollView>
