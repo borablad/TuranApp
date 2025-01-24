@@ -5,10 +5,10 @@
              Title=""
              xmlns:fa="clr-namespace:FontAwesome"
              NavigationPage.HasNavigationBar="False">
-    <Grid RowDefinitions="60,*" Padding="0,20" RowSpacing="15">
-        <Grid ColumnDefinitions="55,*" ColumnSpacing="10" Margin="20,0">
-            <Border HeightRequest="55" WidthRequest="55" >
-                <Label Text="{x:Static fa:FontAwesomeIcons.User}" FontFamily="FAR" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+    <Grid RowDefinitions="50,*" Padding="0,15,0,8" RowSpacing="10">
+        <Grid ColumnDefinitions="50,*" ColumnSpacing="10" Margin="20,0">
+            <Border HeightRequest="50" WidthRequest="50" >
+                <Label Text="{x:Static fa:FontAwesomeIcons.User}" FontFamily="FAR" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
             </Border>
             <Border Grid.Column="1">
                 <Grid >
@@ -18,78 +18,95 @@
             </Border>
         </Grid>
         
-        <ScrollView Grid.Row="1" Padding="20"  >
+        <ScrollView Grid.Row="1" Padding="15"  >
             <StackLayout Spacing="20">
-                <Border Padding="20" HeightRequest="250" >
-                    <Label Text="типа график" />
+                <!-- График -->
+                <Border Padding="10" HeightRequest="230" >
+                    <ScrollView Orientation="Both">
+                        <StackLayout Orientation="Horizontal" Spacing="12" >
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource Primary}" Margin="0,0,12,0" HeightRequest="195" VerticalOptions="End"/>
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource GreenButton}" Margin="0,0,12,0" HeightRequest="146.25" VerticalOptions="End"/>
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource Yellow100Accent}" Margin="0,0,12,0" HeightRequest="126.75" VerticalOptions="End"  />
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource RedButton}"  Margin="0,0,12,0" HeightRequest="97.5" VerticalOptions="End" />
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource GreenButton}" Margin="0,0,12,0" HeightRequest="146.25" VerticalOptions="End" />
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource Yellow100Accent}" Margin="0,0,12,0" HeightRequest="126.75" VerticalOptions="End" />
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource Yellow100Accent}" Margin="0,0,12,0" HeightRequest="126.75" VerticalOptions="End" />
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource Primary}" Margin="0,0,12,0" HeightRequest="175" VerticalOptions="End" />
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                            <Grid RowDefinitions="*,auto" MaximumWidthRequest="50"   >
+                                <Frame BackgroundColor="{StaticResource RedButton}"  Margin="0,0,12,0" HeightRequest="97.5" VerticalOptions="End"/>
+                                <Label Grid.Row="1" Text="Название предмета" LineBreakMode="TailTruncation" FontSize="Micro" />
+                            </Grid>
+                        </StackLayout>
+                    </ScrollView>
                 </Border>
-                <StackLayout Spacing="10">
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource Primary}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="95%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                
+                <!-- Отценки -->
+                <StackLayout Spacing="15">
+                    <Border  >
+                        <Grid  ColumnDefinitions="*,.11*" Background="{StaticResource Primary}">
+                            <Border  Padding="0,12" TranslationX="-5" TranslationY="-5" >
+                                <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
                             </Border>
+                            <Label Grid.Column="1" Text="95%" FontAttributes="Bold" FontSize="18" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Border>
                     <!-- Заполнение для обьёма -->
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource RedButton}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="49%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    <Border  >
+                        <Grid  ColumnDefinitions="*,.11*" Background="{StaticResource Primary}">
+                            <Border  Padding="0,12" TranslationX="-5" TranslationY="-5" >
+                                <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
                             </Border>
+                            <Label Grid.Column="1" Text="95%" FontAttributes="Bold" FontSize="18" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Border>
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource Yellow100Accent}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="65%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    <Border  >
+                        <Grid  ColumnDefinitions="*,.11*" Background="{StaticResource GreenButton}">
+                            <Border  Padding="0,12" TranslationX="-5" TranslationY="-5" >
+                                <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
                             </Border>
+                            <Label Grid.Column="1" Text="75%" FontAttributes="Bold" FontSize="18" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Border>
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource RedButton}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="49%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    <Border  >
+                        <Grid  ColumnDefinitions="*,.11*" Background="{StaticResource Yellow100Accent}">
+                            <Border  Padding="0,12" TranslationX="-5" TranslationY="-5" >
+                                <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
                             </Border>
+                            <Label Grid.Column="1" Text="65%" FontAttributes="Bold" FontSize="18" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Border>
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource GreenButton}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="75%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                    <Border  >
+                        <Grid  ColumnDefinitions="*,.11*" Background="{StaticResource RedButton}">
+                            <Border  Padding="0,12" TranslationX="-5" TranslationY="-5" >
+                                <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
                             </Border>
+                            <Label Grid.Column="1" Text="45%" FontAttributes="Bold" FontSize="18" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                         </Grid>
                     </Border>
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource GreenButton}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="75%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-                            </Border>
-                        </Grid>
-                    </Border>
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource Yellow100Accent}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="65%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-                            </Border>
-                        </Grid>
-                    </Border>
-                    <Border >
-                        <Grid ColumnDefinitions="*,.3*">
-                            <Label Text="Предмет" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Margin="20,0" FontSize="18"/>
-                            <Border Background="{StaticResource Primary}" Grid.Column="1" Padding="0,10" >
-                                <Label Text="95%" FontAttributes="Bold" FontSize="Title" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
-                            </Border>
-                        </Grid>
-                    </Border>
-
                     <!-- Заполнение для обьёма -->
                 </StackLayout>
             </StackLayout>
