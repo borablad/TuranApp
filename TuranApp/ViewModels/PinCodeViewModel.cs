@@ -20,14 +20,14 @@ namespace TuranApp.ViewModels
         string code = "";
 
         
-        string _curent_code = Preferences.Get(nameof(_curent_code), "");
+        string _current_code = Preferences.Get(nameof(_current_code), "");
         string _code = "";
 
         [ObservableProperty]
         bool circle1, circle2, circle3, circle4;
 
         [ObservableProperty] //отоброжение текста для регистрации кода и его проверка
-        bool isCurentCode,isRegCodeStep;
+        bool isCurrentCode,isRegCodeStep;
 
 
 
@@ -35,8 +35,8 @@ namespace TuranApp.ViewModels
         {
             try
             {
-                _curent_code = Preferences.Get(nameof(_curent_code), "");
-                IsCurentCode = !string.IsNullOrEmpty(_curent_code) ;
+                _current_code = Preferences.Get(nameof(_current_code), "");
+                IsCurrentCode = !string.IsNullOrEmpty(_current_code) ;
                 IsRegCodeStep = true;
                 Code = string.Empty;
                 UpdateCircles();
@@ -104,11 +104,11 @@ namespace TuranApp.ViewModels
             }
             if (_code == Code)
             {
-                Preferences.Set(nameof(_curent_code), Code);
+                Preferences.Set(nameof(_current_code), Code);
                 await Authorization();
-                IsCurentCode = true;
+                IsCurrentCode = true;
             }
-            else await AppShell.Current.DisplayPromptAsync("Код не совподает","попробуйте снова");
+            else await AppShell.Current.DisplayPromptAsync("Код не совпадает","попробуйте снова");
             IsRegCodeStep = true;
             
 
@@ -158,7 +158,7 @@ namespace TuranApp.ViewModels
             if (Circle4)
             {
                 await Task.Delay(50);
-                if(isCurentCode) 
+                if(isCurrentCode) 
                     await Authorization();
                 else
                     await RegistCode();

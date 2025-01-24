@@ -16,19 +16,19 @@
         <!--<Image Grid.ColumnSpan="3" Source="appiconbg" Opacity="0.3" Aspect="AspectFit"  />-->
 
         <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="40,20" TranslationY="60" VerticalOptions="End" Spacing="15" >
-            <Label IsVisible="{Binding IsCurentCode}" Text="Введите пин код для входа" HorizontalTextAlignment="Center" FontSize="16">
+            <Label IsVisible="{Binding IsCurrentCode}" Text="Введите пин код для входа" HorizontalTextAlignment="Center" FontSize="16">
 
             </Label>
-            <Label IsVisible="{Binding IsCurentCode}" Text="Пин код привязан к устройсву а не к аккаунту" TextColor="{StaticResource RedButton}" HorizontalTextAlignment="Center" FontSize="16">
+            <Label IsVisible="{Binding IsCurrentCode}" Text="Пин код привязан к устройсву а не к аккаунту" TextColor="{StaticResource RedButton}" HorizontalTextAlignment="Center" FontSize="16">
 
             </Label>
 
             <StackLayout Spacing="15">
                 <StackLayout.Triggers>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsCurentCode}" Value="true">
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsCurrentCode}" Value="true">
                         <Setter Property="IsVisible" Value="False"/>
                     </DataTrigger>
-                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsCurentCode}" Value="false">
+                    <DataTrigger TargetType="StackLayout" Binding="{Binding IsCurrentCode}" Value="false">
                         <Setter Property="IsVisible" Value="True"/>
                     </DataTrigger>
                 </StackLayout.Triggers>

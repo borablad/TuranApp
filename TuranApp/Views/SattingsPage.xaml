@@ -3,9 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TuranApp.Views.SattingsPage"
              Title=""
+             xmlns:vm="clr-namespace:TuranApp.ViewModels"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:SattindViewModel/>
+    </ContentPage.BindingContext>
     <ScrollView >
         <StackLayout Margin="30,20" Spacing="10">
+            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="End"  Margin="15" >
+
+                <Label Text="{Binding AppVersion,Mode=OneTime}"    FontAttributes="Bold" FontSize="12"  ></Label>
+
+            </StackLayout>-->
             <!-- App -->
             <Label Text="Приложение" VerticalTextAlignment="Center" FontSize="20"  />
             <Border Padding="5,5">
@@ -14,6 +23,9 @@
                         <Label Text="Тема" VerticalTextAlignment="Center" FontSize="18" Margin="10" />
                         <Border Grid.Column="1" Padding="8" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" MinimumWidthRequest="180" >
                             <Label Text="Системная" VerticalTextAlignment="Center" FontSize="18" HorizontalTextAlignment="Center" />
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChangeThemeCommand}" />
+                            </Border.GestureRecognizers>
                         </Border>
                     </Grid>
                     <Border BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" HeightRequest="3" Margin="15,0" />
@@ -30,15 +42,32 @@
                 <StackLayout Spacing="8">
                     <Grid ColumnDefinitions="*,auto" >
                         <Label Text="Ливнуть" TextColor="{StaticResource RedButton}" VerticalTextAlignment="Center" FontSize="18" Margin="10" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                        </Grid.GestureRecognizers>
                     </Grid>
                     <Border BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" HeightRequest="3" Margin="15,0" />
                     <Grid ColumnDefinitions="*,auto" >
-                        <Label Text="Сбросить пин код" TextColor="{StaticResource RedButton}" VerticalTextAlignment="Center" FontSize="18" Margin="10"  IsEnabled="False" />
+                        <Label Text="Сбросить пин код" TextColor="{StaticResource RedButton}" VerticalTextAlignment="Center" FontSize="18" Margin="10"   />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ResetPinCodeCommand}" />
+                        </Grid.GestureRecognizers>
                     </Grid>
                 </StackLayout>
             </Border>
 
-
+            <!--<StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="60,10,60,30">
+                <Label Text="Это приложение создано по приколу и не для заработка. если имеется желание" HorizontalTextAlignment="Center" />
+                <Label Text="донатить zдесь" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer />
+                        --><!-- Вреатли я добавлю ссылку на донат но пусть будет --><!--
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                
+            </StackLayout>-->
+           
         </StackLayout>
     </ScrollView>
 </ContentPage>
