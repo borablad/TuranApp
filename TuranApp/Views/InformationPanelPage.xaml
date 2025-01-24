@@ -2,12 +2,136 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TuranApp.Views.InformationPanelPage"
-             Title=" "
+             xmlns:fa="clr-namespace:FontAwesome"
+             Title=""
              NavigationPage.HasNavigationBar="False">
-    <StackLayout VerticalOptions="Center">
-        <Label 
-            Text="Разработка"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </StackLayout>
+    <Grid RowDefinitions="50,*" Padding="0,15,0,8" RowSpacing="10">
+        <Grid ColumnDefinitions="50,*" ColumnSpacing="10" Margin="20,0">
+            <Border HeightRequest="50" WidthRequest="50" >
+                <Label Text="{x:Static fa:FontAwesomeIcons.User}" FontFamily="FAR" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            </Border>
+            <Border Grid.Column="1">
+                <Grid >
+                    <Label Text="{x:Static fa:FontAwesomeIcons.MagnifyingGlass}" FontFamily="FAS" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Margin="15,0" />
+                    <Entry Text="" Placeholder="Поиск" FontSize="18" VerticalOptions="Fill" Margin="10,-5" TranslationY="9"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <ScrollView Grid.Row="1" Padding="15"  >
+            <StackLayout Spacing="20">
+                <!-- Свитч представления -->
+                <Border Padding="3" HorizontalOptions="Start" >
+                    <Grid ColumnDefinitions="*,*" >
+                        <Border Grid.Column="0" BackgroundColor="{AppThemeBinding Dark={StaticResource BackgroundColorDark},Light={StaticResource BackgroundColorLight}}" Padding="8" >
+                            <Label Text="{x:Static fa:FontAwesomeIcons.List}" FontFamily="FAS" FontSize="Title" />
+                        </Border>
+                        <Border Grid.Column="1" BackgroundColor="{AppThemeBinding Dark={StaticResource HeaderBarBackgroundColorDark},Light={StaticResource HeaderBarBackgroundColorLight}}" Padding="8" >
+                            <Label Text="{x:Static fa:FontAwesomeIcons.Linux}" FontFamily="FAB" FontSize="Title" />
+                        </Border>
+                    </Grid>
+                </Border>
+                
+                <!-- Список заданий -->
+                <StackLayout Spacing="15">
+                    <Label Text="22 сетября 2024" FontSize="20" />
+                    <Border>
+                        <Grid ColumnDefinitions="*,.8*" >
+                            <StackLayout Margin="10">
+                                <Label Text="Задание" FontSize="18" />
+                                <Label Text="Описание" FontSize="16" Opacity="0.6"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1" Margin="10">
+                                <Border BackgroundColor="Green" >
+                                    <Label Text="готово" FontSize="14" HorizontalTextAlignment="Center" TextColor="White" />
+                                </Border>
+                                <Label Text="Предмет" FontSize="18" HorizontalTextAlignment="End"/>
+                                <HorizontalStackLayout >
+                                    <Label Text="Дэд лаин: " FontSize="14" HorizontalTextAlignment="Center" />
+                                    <Label Text="21.09.2024" FontSize="14" HorizontalTextAlignment="Center" TextColor="Red" >
+                                        
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                            
+                        </Grid>
+                    </Border>
+
+                    <Border>
+                        <Grid ColumnDefinitions="*,.8*" >
+                            <StackLayout Margin="10">
+                                <Label Text="Задание" FontSize="18" />
+                                <Label Text="Описание" FontSize="16" Opacity="0.6"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1" Margin="10">
+                                <Border BackgroundColor="Red" >
+                                    <Label Text="просрочено" FontSize="14" HorizontalTextAlignment="Center" TextColor="White" />
+                                </Border>
+                                <Label Text="Предмет" FontSize="18" HorizontalTextAlignment="End"/>
+                                <HorizontalStackLayout >
+                                    <Label Text="Дэд лаин: " FontSize="14" HorizontalTextAlignment="Center" />
+                                    <Label Text="21.09.2024" FontSize="14" HorizontalTextAlignment="Center" TextColor="Red" >
+
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                        </Grid>
+                    </Border>
+
+
+                    <Label Text="22 сетября 2024" FontSize="20" />
+                    <Border>
+                        <Grid ColumnDefinitions="*,.8*" >
+                            <StackLayout Margin="10">
+                                <Label Text="Задание" FontSize="18" />
+                                <Label Text="Описание" FontSize="16" Opacity="0.6"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1" Margin="10">
+                                <Border BackgroundColor="Green" >
+                                    <Label Text="готово" FontSize="14" HorizontalTextAlignment="Center" TextColor="White" />
+                                </Border>
+                                <Label Text="Предмет" FontSize="18" HorizontalTextAlignment="End"/>
+                                <HorizontalStackLayout >
+                                    <Label Text="Дэд лаин: " FontSize="14" HorizontalTextAlignment="Center" />
+                                    <Label Text="21.09.2024" FontSize="14" HorizontalTextAlignment="Center" TextColor="Red" >
+
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                        </Grid>
+                    </Border>
+
+                    <Border>
+                        <Grid ColumnDefinitions="*,.8*" >
+                            <StackLayout Margin="10">
+                                <Label Text="Задание" FontSize="18" />
+                                <Label Text="Описание" FontSize="16" Opacity="0.6"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1" Margin="10">
+                                <Border BackgroundColor="Red" >
+                                    <Label Text="просрочено" FontSize="14" HorizontalTextAlignment="Center" TextColor="White" />
+                                </Border>
+                                <Label Text="Предмет" FontSize="18" HorizontalTextAlignment="End"/>
+                                <HorizontalStackLayout >
+                                    <Label Text="Дэд лаин: " FontSize="14" HorizontalTextAlignment="Center" />
+                                    <Label Text="21.09.2024" FontSize="14" HorizontalTextAlignment="Center" TextColor="Red" >
+
+                                    </Label>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                        </Grid>
+                    </Border>
+                
+            </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
