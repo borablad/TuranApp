@@ -40,14 +40,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<ItemGroup>
-			<MauiIcon Include="Resources\AppIcon\TuranAppIcon.svg" />
-		</ItemGroup>
+		<MauiIcon Include="Resources\AppIcon\*" />
+
 
 		<!-- Splash Screen -->
-		<ItemGroup>
-			<MauiSplashScreen Include="Resources\Splash\splash.svg" />
-		</ItemGroup>
+		<MauiSplashScreen Include="Resources\Splash\*" />
+		
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />

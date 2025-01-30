@@ -1,0 +1,6 @@
+<svg width="100%" height="100%" viewBox="0 0 456 456" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <rect width="456" height="456" rx="19" fill="white"/>
+    <path d="M0 10C0 4.47715 4.47715 0 10 0H446C451.523 0 456 4.47715 456 10V133.404H0V10Z" fill="#4A95FF"/>
+    <path d="M0 216.319C0 208.035 6.71573 201.319 15 201.319H169.34C177.625 201.319 184.34 208.035 184.34 216.319V456H10C4.47716 456 0 451.523 0 446V216.319Z" fill="#4A95FF"/>
+    <path d="M271.66 216.319C271.66 208.035 278.375 201.319 286.66 201.319H441C449.284 201.319 456 208.035 456 216.319V446C456 451.523 451.523 456 446 456H271.66V216.319Z" fill="#4A95FF"/>
+</svg>
